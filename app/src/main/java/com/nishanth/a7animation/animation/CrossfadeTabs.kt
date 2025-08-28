@@ -9,7 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -34,3 +39,12 @@ fun CrossfadeTabs(selected: String, onSelect: (String) -> Unit) {
         }
     }
 }
+
+// A wrapper composable to hold the state for the preview
+@Preview(showBackground = true)
+@Composable
+fun CrossfadeTabsPreview() {
+    var selectedTab by remember { mutableStateOf("Home") }
+    CrossfadeTabs(selected = selectedTab, onSelect = { selectedTab = it })
+}
+
