@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -30,4 +31,18 @@ fun FavoriteHeart(isFav: Boolean) {
             .size(28.dp),
         tint = if (isFav) MaterialTheme.colorScheme.error else LocalContentColor.current
     )
+}
+
+// Preview to see the un-favorited state
+@Preview(showBackground = true)
+@Composable
+fun FavoriteHeartUnfavPreview() {
+    FavoriteHeart(isFav = false)
+}
+
+// Preview to see the favorited state (static for preview)
+@Preview(showBackground = true)
+@Composable
+fun FavoriteHeartFavPreview() {
+    FavoriteHeart(isFav = true)
 }
