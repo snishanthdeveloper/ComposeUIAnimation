@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -26,4 +27,18 @@ fun AutoSizingMessage(text: String) {
     ) {
         Text(text)
     }
+}
+
+// A preview to show it in action
+@Preview(showBackground = true)
+@Composable
+fun AutoSizingMessagePreview() {
+    AutoSizingMessage(text = "Hello, this is a short message!")
+}
+
+// You can test with a longer string to see the animation
+@Preview(showBackground = true)
+@Composable
+fun AutoSizingLongMessagePreview() {
+    AutoSizingMessage(text = "This is a much longer message that will cause the box to smoothly expand. Watch how it gracefully resizes to fit all of this new content without any sudden jumps!")
 }
